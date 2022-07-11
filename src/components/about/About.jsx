@@ -4,8 +4,7 @@ import Terminal from "./Terminal";
 import {Box} from "@mui/material";
 import {info} from "../../info/Info";
 
-
-export default function About() {
+export default function About({bibliografia}) {
     const firstName = info.firstName.toLowerCase()
 
     function aboutMeText() {
@@ -14,7 +13,7 @@ export default function About() {
                 about{firstName} </p>
             <p><span style={{color: info.baseColor}}>about{firstName} <span
                 className={Style.green}>(main)</span> $ </span>
-                {info.bio}
+                {bibliografia}
             </p>
         </>;
     }

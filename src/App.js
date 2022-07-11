@@ -3,15 +3,24 @@ import './App.module.scss';
 import BaseLayout from "./components/BaseLayout";
 import {BrowserRouter} from "react-router-dom";
 
-function App() {
+import { PropTypes } from 'prop-types'
+
+function App({backgroundColor}) {
+
    return (
-      <div >
+      <div style={{backgroundColor:`${backgroundColor}`}}>
          <BrowserRouter>
-            <BaseLayout/>
+            <BaseLayout backgroundColor={backgroundColor}/>
          </BrowserRouter>
       </div>
    );
 }
 
 
+
 export default App;
+
+App.prototype = {
+   backgroundColor: PropTypes.string
+}
+
