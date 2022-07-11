@@ -6,7 +6,7 @@ import About from "./about/About";
 import {Route, Routes} from "react-router-dom";
 import {Box, Grid} from "@mui/material";
 
-export default function BaseLayout() {
+export default function BaseLayout({backgroundColor}) {
    let [darkMode, setDarkMode] = useState(false);
 
    function handleClick() {
@@ -14,7 +14,7 @@ export default function BaseLayout() {
    }
 
    return (
-      <Box className={darkMode ? Style.dark : Style.light}>
+      <Box className={ backgroundColor!=''?backgroundColor:darkMode ? Style.dark : Style.light}>
          <Grid  component={'containerB'} container display={'flex'} flexDirection={'column'} minHeight={'100vh'}
                justifyContent={'space-around'}>
             
