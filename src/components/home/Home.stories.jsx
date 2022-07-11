@@ -1,4 +1,5 @@
 
+import { withTheme } from "@emotion/react";
 import React from "react"; 
 import Home from "./Home"; 
 
@@ -13,4 +14,5 @@ const Template = (args) => <Home {...args} />;
 export const home= Template.bind({});
 home.args = {
     label: 'este es un botton de ejemplo',
+    backgraund: withTheme,
 }
