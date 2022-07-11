@@ -3,14 +3,15 @@ import Style from './About.module.scss';
 import Terminal from "./Terminal";
 import {Box} from "@mui/material";
 import {info} from "../../info/Info";
+import { PropTypes } from "prop-types";
 
 
-export default function About() {
+export default function About({label}) {
     const firstName = info.firstName.toLowerCase()
 
     function aboutMeText() {
         return <>
-            <p><span style={{color: info.baseColor}}>{firstName} {info.lastName.toLowerCase()} $</span> cat
+            <p><span style={{color: info.baseColor}}>{firstName} {info.lastName.toLowerCase()} $</span> cat{label}
                 about{firstName} </p>
             <p><span style={{color: info.baseColor}}>about{firstName} <span
                 className={Style.green}>(main)</span> $ </span>
@@ -57,4 +58,8 @@ export default function About() {
             <Terminal text={miscText()}/>
         </Box>
     )
+}
+
+About.prototype = {
+    label: PropTypes.string,
 }
