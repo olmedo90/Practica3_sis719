@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Style from './Home.module.scss';
 import me from '../../img/perfil.jpg';
 import classNames from 'classnames';
@@ -6,10 +7,14 @@ import EmojiBullet from "./EmojiBullet";
 import SocialIcon from "./SocialIcon";
 import {Box} from "@mui/material";
 import {info} from "../../info/Info";
-
-export default function Home() {
+import {Container} from "@mui/material";
+export default function Home({ primary, backgroundColor, label, ...props }) {
 
    return (
+      <Container type="button"
+      className={['storybook-button']}
+      style={backgroundColor && { backgroundColor }}
+      {...props}>
       <Box component={'main'} display={'flex'} flexDirection={{xs: 'column', md: 'row'}} alignItems={'center'}
            justifyContent={'center'} minHeight={'calc(100vh - 175px)'}>
          <Box className={classNames(Style.avatar, Style.shadowed)} style={{background: info.gradient}} component={'img'} src={me} width={{xs: '35vh', md: '40vh'}}
@@ -31,5 +36,39 @@ export default function Home() {
             </Box>
          </Box>
       </Box>
+      </Container>
    )
 }
+
+
+
+Home.propTypes = {
+   /**
+    * Is this the principal call to action on the page?
+    */
+   ControlBaground: PropTypes.bool,
+   /**
+    * What background color to use
+    */
+   backgroundColor: PropTypes.string,
+   /**
+    * How large should the button be?
+    */
+   
+   /**
+    * Button contents
+    */
+   label: PropTypes.string.isRequired,
+   /**
+    * Optional click handler
+    */
+   onClick: PropTypes.func,
+ };
+ 
+ Home.defaultProps = {
+   backgroundColor: null,
+   primary: false,
+   
+   onClick: undefined,
+ };
+ 
